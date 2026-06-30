@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Für Sophie</title>
+    <meta
+      name="description"
+      content="Sophie ist 3 Jahre alt und kämpft gegen einen seltenen, aggressiven Hirntumor. Helft uns, ihr jede Chance zu geben."
+    />
+
+    <!-- Open Graph: schöne Vorschau beim Teilen in WhatsApp/Facebook/Instagram -->
+    <meta property="og:title" content="Für Sophie" />
+    <meta
+      property="og:description"
+      content="Sophie ist 3 Jahre alt und kämpft gegen einen seltenen, aggressiven Hirntumor. Helft uns, ihr jede Chance zu geben."
+    />
+    <meta property="og:type" content="website" />
+    <!-- <meta property="og:image" content="https://fuer-sophie.at/sophie-og.jpg"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --ink: #1b2436;
+        --dusk-1: #1b2436;
+        --dusk-2: #324264;
+        --dawn: #fbf3e7;
+        --gold: #d7a33b;
+        --gold-soft: #e9c77e;
+        --rose: #c97a66;
+        --muted: #6b7280;
+        --line: #e4dbc9;
+        --cream-text: #f4efe3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Figtree", sans-serif;
+        color: var(--ink);
+        background: var(--dawn);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      .display {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: 1.08;
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .eyebrow {
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 600;
+        opacity: 0.75;
+      }
+
+      /* ---------- HERO (dusk / night) ---------- */
+      .hero {
+        position: relative;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 1.5rem 2rem;
+        justify-content: flex-start;
+        overflow: hidden;
+        background: radial-gradient(
+          ellipse at 50% -10%,
+          var(--dusk-2) 0%,
+          var(--dusk-1) 55%,
+          #131a28 100%
+        );
+        color: var(--cream-text);
+      }
+
+      .sunrise-glow {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 50% -5%,
+            rgba(215, 163, 59, 0.22) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 20% 80%,
+            rgba(201, 122, 102, 0.08) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 80% 90%,
+            rgba(215, 163, 59, 0.06) 0%,
+            transparent 40%
+          );
+      }
+
+      .sun-icon {
+        position: relative;
+        width: 28px;
+        height: 28px;
+        margin-bottom: 0.6rem;
+        z-index: 1;
+        animation: sunpulse 4s ease-in-out infinite;
+      }
+      .sun-icon svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        filter: drop-shadow(0 0 10px rgba(215, 163, 59, 0.85));
+      }
+
+      @keyframes sunpulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.82;
+          transform: scale(0.93);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .sun-icon {
+          animation: none;
+        }
+      }
+
+      .hero .eyebrow {
+        color: var(--gold-soft);
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 11vw, 6.5rem);
+        margin-top: 0.6rem;
+        z-index: 1;
+      }
+
+      .hero .meaning {
+        margin-top: 1.1rem;
+        font-style: italic;
+        font-family: "Fraunces", serif;
+        font-size: 1.15rem;
+        color: var(--gold-soft);
+        z-index: 1;
+      }
+
+      .hero-photos {
+        position: relative;
+        width: min(520px, 92vw);
+        margin: 0.75rem auto 0;
+        z-index: 1;
+      }
+      .family-photo-crop {
+        border-radius: 18px;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      }
+      .family-photo {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center 65%;
+      }
+      .sophie-badge {
+        position: absolute;
+        top: -24px;
+        right: -24px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        padding: 4px;
+        background: conic-gradient(
+          from 0deg,
+          var(--gold) 0%,
+          transparent 18%,
+          transparent 82%,
+          var(--gold) 100%
+        );
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+      }
+      .sophie-badge-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #2a3450 url("img/Sophie_04.jpeg") center/cover no-repeat;
+        border: 3px solid var(--dusk-1);
+      }
+
+      .hero .hook {
+        max-width: 30rem;
+        margin: 1.4rem auto 0;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: rgba(244, 239, 227, 0.85);
+        z-index: 1;
+        text-align: left;
+      }
+
+      .scroll-cue {
+        margin-top: 1.4rem;
+        z-index: 1;
+        opacity: 0.9;
+        font-size: 0.92rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--gold-soft);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+      }
+      .scroll-cue svg {
+        width: 20px;
+        stroke: var(--gold-soft);
+        animation: bob 2s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        }
+      }
+
+      /* ---------- TRANSITION dusk -> dawn ---------- */
+      .twilight-fade {
+        height: 22vh;
+        background: linear-gradient(180deg, #131a28 0%, var(--dawn) 100%);
+      }
+
+      /* ---------- STORY (paper) ---------- */
+      .story {
+        background: var(--dawn);
+        padding: 1rem 1.5rem 2.5rem;
+      }
+      .story-inner {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .story p {
+        font-size: 1.08rem;
+        line-height: 1.75;
+        margin: 0 0 1.4rem;
+        color: #2b3344;
+      }
+      .story-photos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin: 0 0 2.6rem;
+      }
+      .story-photos img {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        border-radius: 14px;
+        display: block;
+      }
+
+      .pull {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 1.4rem;
+        line-height: 1.45;
+        color: var(--rose);
+        border-left: 3px solid var(--gold);
+        padding-left: 1.3rem;
+        margin: 2.6rem 0 2.6rem;
+      }
+
+      /* ---------- WHY WE NEED HELP ---------- */
+      .reasons {
+        background: var(--dawn);
+        padding: 0 1.5rem 5rem;
+      }
+      .reasons-inner {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .reasons h2 {
+        font-size: 1.7rem;
+        margin-bottom: 2rem;
+      }
+      .reason-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+      .reason {
+        display: flex;
+        gap: 1.1rem;
+        align-items: flex-start;
+      }
+      .reason .icon {
+        flex: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #f1e5c8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .reason .icon svg {
+        width: 18px;
+        height: 18px;
+        stroke: var(--gold);
+      }
+      .reason p {
+        margin: 0;
+        line-height: 1.6;
+        color: #2b3344;
+      }
+      .reason strong {
+        display: block;
+        font-family: "Fraunces", serif;
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-bottom: 0.15rem;
+      }
+
+      /* ---------- DONATE (dusk card) ---------- */
+      .donate-wrap {
+        padding: 0 1.5rem 6rem;
+        background: var(--dawn);
+      }
+      .donate {
+        max-width: 640px;
+        margin: 0 auto;
+        background: radial-gradient(
+          ellipse at 30% 0%,
+          var(--dusk-2),
+          var(--dusk-1)
+        );
+        color: var(--cream-text);
+        border-radius: 22px;
+        padding: 3rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .donate::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 30% 0%,
+            rgba(215, 163, 59, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 80% 100%,
+            rgba(201, 122, 102, 0.08) 0%,
+            transparent 45%
+          );
+      }
+      .donate-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .donate .mini-sun {
+        width: 18px;
+        height: 18px;
+        margin: 0 auto 1rem;
+      }
+      .donate .mini-sun svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 0 6px rgba(215, 163, 59, 0.8));
+      }
+
+      .donate h2 {
+        font-size: 1.9rem;
+        color: var(--cream-text);
+      }
+      .donate p.lead {
+        color: rgba(244, 239, 227, 0.8);
+        margin: 0.8rem 0 2.2rem;
+        line-height: 1.6;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: var(--gold);
+        color: #221a0c;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 0.95rem 2.3rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+        box-shadow: 0 8px 22px rgba(215, 163, 59, 0.35);
+      }
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 26px rgba(215, 163, 59, 0.45);
+      }
+      .btn-primary:focus-visible {
+        outline: 3px solid var(--cream-text);
+        outline-offset: 3px;
+      }
+
+      .divider-or {
+        margin: 2.4rem 0 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: rgba(244, 239, 227, 0.45);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .divider-or::before,
+      .divider-or::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(244, 239, 227, 0.2);
+      }
+
+      .bank-box {
+        background: rgba(244, 239, 227, 0.06);
+        border: 1px solid rgba(244, 239, 227, 0.18);
+        border-radius: 16px;
+        padding: 1.6rem;
+        text-align: left;
+      }
+      .bank-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.55rem 0;
+        border-bottom: 1px solid rgba(244, 239, 227, 0.1);
+      }
+      .bank-row:last-child {
+        border-bottom: none;
+      }
+      .bank-row .label {
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(244, 239, 227, 0.5);
+      }
+      .bank-row .value {
+        font-family: "Figtree", sans-serif;
+        font-weight: 600;
+        font-size: 0.98rem;
+        word-break: break-all;
+      }
+
+      .copy-btn {
+        background: transparent;
+        border: 1px solid rgba(244, 239, 227, 0.35);
+        color: var(--cream-text);
+        border-radius: 8px;
+        padding: 0.35rem 0.7rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+        flex: none;
+        transition: background 0.15s ease;
+      }
+      .copy-btn:hover {
+        background: rgba(244, 239, 227, 0.12);
+      }
+
+      .qr-area {
+        margin-top: 1.6rem;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        background: rgba(244, 239, 227, 0.06);
+        border: 1px solid rgba(244, 239, 227, 0.18);
+        border-radius: 16px;
+        padding: 1.2rem 1.4rem;
+        text-align: left;
+      }
+      .qr-area img {
+        width: 160px;
+        height: 160px;
+        border-radius: 8px;
+        background: #fff;
+        flex: none;
+        object-fit: contain;
+      }
+      .qr-area p {
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: rgba(244, 239, 227, 0.75);
+      }
+
+      /* ---------- FOOTER ---------- */
+      footer {
+        text-align: center;
+        padding: 3.5rem 1.5rem 4rem;
+        background: var(--dawn);
+      }
+      footer .mini-sun {
+        width: 16px;
+        height: 16px;
+        margin: 0 auto 1rem;
+        opacity: 0.6;
+      }
+      footer p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        max-width: 30rem;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+      footer .heart {
+        color: var(--rose);
+      }
+
+      @media (max-width: 768px) {
+        .donate {
+          padding: 2.4rem 1.4rem;
+          border-radius: 18px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding-top: 2.5rem;
+        }
+        .sophie-badge {
+          width: 130px;
+          height: 130px;
+          top: -12px;
+          right: -12px;
+        }
+        .hero .hook {
+          text-align: center;
+        }
+        .bank-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.3rem;
+        }
+        .qr-area {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .story-photos {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="sunrise-glow"></div>
+
+      <div class="sun-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="4.5" fill="#D7A33B" />
+          <path
+            d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77"
+            stroke="#D7A33B"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+
+      <h1>Sophie</h1>
+      <p class="meaning">
+        Unterstütze mit deiner Spende den Kampf gegen ihren bösartigen
+        Gehirntumor
+      </p>
+
+      <div class="hero-photos">
+        <div class="family-photo-crop">
+          <img
+            src="img/Sophie_05.jpeg"
+            class="family-photo"
+            alt="Sophie mit ihrer Familie"
+          />
+        </div>
+        <div class="sophie-badge">
+          <div class="sophie-badge-inner"></div>
+        </div>
+      </div>
+
+      <p class="hook">
+        Mein Patenkind Sophie ist 3 Jahre alt – lustig, neugierig und voller
+        Lebensfreude. Mitte Mai 2026 hat sich ihr Leben mit der Diagnose eines
+        bösartigen Gehirntumors von einem Moment auf den anderen verändert.
+      </p>
+
+      <a href="#story" class="scroll-cue">
+        Ihre Geschichte
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M12 4 L12 20 M5 13 L12 20 L19 13" />
+        </svg>
+      </a>
+    </section>
+
+    <div class="twilight-fade"></div>
+
+    <!-- ============ STORY ============ -->
+    <section class="story" id="story">
+      <div class="story-inner">
+        <p>
+          Alles begann mit Kopfschmerzen und Erbrechen über einige Tage hinweg –
+          Symptome, die zunächst harmlos wirkten. Nur eine Woche später zeigte
+          ein MRT des Gehirns die schreckliche und vollkommen überraschende
+          Wahrheit: Bei Sophie wurde ein
+          <strong>Atypischer Teratoider Rhabdoidtumor (AT/RT)</strong>
+          diagnostiziert – einer der seltensten und aggressivsten Hirntumoren.
+          Eine Diagnose, die keine Familie je hören möchte, und mit der die
+          meisten Menschen noch nie in Berührung gekommen sind. Etwa
+          ein Lotto 6er im negativen Sinne, da er nur ca. 1% der Gehirntumoren
+          bei Kleinkindern ausmacht und in Deutschland pro Jahr nur ca. 10 -
+          22 Kinder betroffen sind.
+        </p>
+        <p>
+          Der Tumor wurde zwei Wochen nach der Diagnose operativ entfernt, und
+          Sophie hat die Operation am Gehirn tapfer überstanden. Aber das ist
+          erst der Anfang eines langen Weges: In den kommenden Monaten steht ihr
+          eine intensive Chemotherapie kombiniert mit Bestrahlung bevor, um im
+          Körper verbliebene Krebszellen zu zerstören und eine nachhaltige
+          Heilung zu ermöglichen.
+        </p>
+
+        <div class="story-photos">
+          <img src="img/Sophie_01.jpeg" alt="Sophie" />
+          <img src="img/Sophie_06.jpeg" alt="Sophie" />
+        </div>
+
+        <p class="pull">
+          So erschütternd diese Diagnose ist – wir geben die Hoffnung nicht auf.
+        </p>
+
+        <p>
+          Wir klammern uns an jeden Grund, der für Sophie spricht. Und davon
+          gibt es einige: Der Tumor wurde früh entdeckt, konnte vollständig
+          entfernt werden, und Sophie wird nach dem bestmöglichen Konzept
+          behandelt, das die moderne Medizin für diesen seltenen und aggressiven
+          Tumor kennt. Vor allem aber kämpft Sophie selbst – jeden einzelnen
+          Tag, mit einem Mut und einer Lebensfreude, die uns alle sprachlos
+          machen.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ WHY WE NEED HELP ============ -->
+    <section class="reasons">
+      <div class="reasons-inner">
+        <h2>Wofür wir deine Hilfe brauchen</h2>
+        <p style="margin: -1.2rem 0 2rem; color: #5b6477; line-height: 1.6">
+          Sowohl die Chemotherapie als auch die Strahlentherapie werden viele
+          Monate dauern. Sophies Eltern werden in dieser Zeit kaum regelmäßig
+          oder gar nicht arbeiten können – sie müssen bei ihr sein und sich auch
+          um ihre Schwester kümmern. Was die Krankenkasse nicht abdeckt,
+          summiert sich schnell:
+        </p>
+        <div class="reason-list">
+          <div class="reason">
+            <div class="icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="7" width="18" height="13" rx="2" />
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+            </div>
+            <p>
+              <strong>Verdienstausfall der Eltern</strong>während der langen
+              Therapiephasen, in denen sie sich um beide Kinder kümmern müssen.
+            </p>
+          </div>
+          <div class="reason">
+            <div class="icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 13l2-6a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 6" />
+                <rect x="3" y="13" width="18" height="6" rx="1.5" />
+                <circle cx="7.5" cy="19" r="1.2" />
+                <circle cx="16.5" cy="19" r="1.2" />
+              </svg>
+            </div>
+            <p>
+              <strong>Fahrt- und Unterkunftskosten</strong>für lange
+              Krankenhausaufenthalte, Anreisen und Übernachtungen.
+            </p>
+          </div>
+          <div class="reason">
+            <div class="icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 2v6M12 16v6M2 12h6M16 12h6" />
+              </svg>
+            </div>
+            <p>
+              <strong>Zuzahlungen und Zusatzkosten</strong>für Medikamente,
+              Hilfsmittel und Therapien, die nicht oder nicht vollständig
+              gedeckt sind.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DONATE ============ -->
+    <section class="donate-wrap">
+      <div class="donate">
+        <div class="donate-content">
+          <div class="mini-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4.5" fill="#D7A33B" />
+              <path
+                d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77"
+                stroke="#D7A33B"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <h2></h2>
+          <p class="lead">
+            Jeder Beitrag – egal wie klein – gibt Sophies Familie die
+            Möglichkeit, sich auf das Einzige zu konzentrieren, was gerade
+            zählt: bei Sophie zu sein und die bestmögliche Heilung zu
+            ermöglichen.
+          </p>
+
+          <p
+            style="
+              font-family: &quot;Fraunces&quot;, serif;
+              font-style: italic;
+              font-size: 1.1rem;
+              color: rgba(244, 239, 227, 0.85);
+              margin: 0 0 2rem;
+              line-height: 1.6;
+            "
+          >
+            Sophie verdient jede Chance. Helft uns, sie ihr zu geben.<br />Danke
+            von ganzem Herzen. <span style="color: var(--rose)">♥</span>
+          </p>
+
+          <div class="divider-or">direkt überweisen oder QR Code scannen</div>
+
+          <div class="bank-box">
+            <div class="bank-row">
+              <div>
+                <div class="label">Kontoinhaber</div>
+                <div class="value">Hofstadler Lisa - Spendenkonto Sophie</div>
+              </div>
+            </div>
+            <div class="bank-row">
+              <div>
+                <div class="label">IBAN</div>
+                <div class="value" id="iban">AT89 3427 7000 0223 2064</div>
+              </div>
+              <button class="copy-btn" onclick="copyIban()">Kopieren</button>
+            </div>
+            <div class="bank-row">
+              <div>
+                <div class="label">BIC</div>
+                <div class="value">RZOOAT2L (Raiffeisenbank)</div>
+              </div>
+            </div>
+            <div class="bank-row">
+              <div>
+                <div class="label">Verwendungszweck</div>
+                <div class="value">Spende für Sophie</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="qr-area">
+            <img
+              src="img/QR_Code Spendenkonto.jpeg"
+              alt="QR-Code zum Überweisen"
+            />
+            <p>
+              Mit der Banking-App scannen – IBAN und Verwendungszweck werden
+              automatisch ausgefüllt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function copyIban() {
+        const iban = document
+          .getElementById("iban")
+          .innerText.replace(/\s/g, "");
+        navigator.clipboard.writeText(iban).then(() => {
+          const btn = document.querySelector(".copy-btn");
+          const original = btn.innerText;
+          btn.innerText = "Kopiert ✓";
+          setTimeout(() => {
+            btn.innerText = original;
+          }, 1800);
+        });
+      }
+    </script>
+  </body>
+</html>
