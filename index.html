@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- verhindert, dass iOS/Safari Teile der IBAN als Telefonnummer erkennt und automatisch verlinkt -->
+    <meta name="format-detection" content="telephone=no" />
     <title id="page-title">Für Sophie</title>
     <meta
       id="meta-description"
@@ -539,6 +541,12 @@
         font-weight: 600;
         font-size: 0.98rem;
         word-break: break-all;
+        text-decoration: none;
+      }
+      .bank-row .value a {
+        color: inherit;
+        text-decoration: none;
+        pointer-events: none;
       }
 
       .copy-btn {
