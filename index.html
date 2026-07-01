@@ -18,7 +18,16 @@
       content="Sophie ist 3 Jahre alt und kämpft gegen einen seltenen, aggressiven Hirntumor. Helft uns, ihr jede Chance zu geben."
     />
     <meta property="og:type" content="website" />
-    <!-- <meta property="og:image" content="https://fuer-sophie.at/sophie-og.jpg"> -->
+    <meta property="og:url" content="https://fuer-sophie.at/" />
+    <meta property="og:image" content="https://fuer-sophie.at/img/Sophie_05.jpeg" />
+    <meta property="og:locale" content="de_AT" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#1b2436" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='4.5' fill='%23D7A33B'/%3E%3Cpath d='M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77' stroke='%23D7A33B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -126,10 +135,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         text-align: center;
         padding: 2rem 1.5rem 2rem;
-        justify-content: flex-start;
         overflow: hidden;
         background: radial-gradient(
           ellipse at 50% -10%,
@@ -215,7 +223,7 @@
 
       .hero-photos {
         position: relative;
-        width: min(520px, 92vw);
+        width: min(600px, 94vw);
         margin: 0.75rem auto 0;
         z-index: 1;
       }
@@ -234,10 +242,10 @@
       }
       .sophie-badge {
         position: absolute;
-        top: -24px;
-        right: -24px;
-        width: 200px;
-        height: 200px;
+        top: -28px;
+        right: -28px;
+        width: 230px;
+        height: 230px;
         border-radius: 50%;
         padding: 4px;
         background: conic-gradient(
@@ -604,10 +612,10 @@
           padding-top: 2.5rem;
         }
         .sophie-badge {
-          width: 130px;
-          height: 130px;
-          top: -12px;
-          right: -12px;
+          width: 150px;
+          height: 150px;
+          top: -14px;
+          right: -14px;
         }
         .hero .hook {
           text-align: center;
@@ -872,7 +880,7 @@
               />
             </svg>
           </div>
-          <h2></h2>
+          <h2 data-i18n="donate_h2">So kannst du helfen</h2>
           <p class="lead" data-i18n="donate_lead">
             Jeder Beitrag – egal wie klein – gibt Sophies Familie die
             Möglichkeit, sich auf das Einzige zu konzentrieren, was gerade
@@ -935,6 +943,8 @@
               Mit der Banking-App scannen – IBAN und Verwendungszweck werden
               automatisch ausgefüllt.
             </p>
+          </div>
+
           <p style="margin: 1.4rem 0 0; font-size: 0.78rem; color: rgba(244,239,227,0.45); line-height: 1.5; text-align: center;" data-i18n="donate_disclaimer">
             Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie zugute.<br />
             Da es sich um ein privates Spendenkonto handelt, ist eine steuerliche Absetzbarkeit nicht möglich.
@@ -942,6 +952,26 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+      <div class="mini-sun" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="4.5" fill="#D7A33B" />
+          <path
+            d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77"
+            stroke="#D7A33B"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </div>
+      <p data-i18n="footer_text">
+        Danke, dass du dir die Zeit genommen hast, Sophies Geschichte zu lesen.
+        Teile diese Seite gerne mit Menschen, die helfen möchten.
+        <span class="heart">♥</span>
+      </p>
+    </footer>
 
     <a href="#donation" class="donate-fab" data-i18n-aria-label="fab_aria_label" aria-label="Zum Spendenkonto">
       <svg viewBox="0 0 24 24" fill="none">
@@ -1005,6 +1035,10 @@
           de: "<strong>Zuzahlungen und Zusatzkosten</strong>für Medikamente, Hilfsmittel und Therapien, die nicht oder nicht vollständig gedeckt sind.",
           en: "<strong>Co-payments and extra costs</strong>for medication, aids and therapies that are not, or not fully, covered.",
         },
+        donate_h2: {
+          de: "So kannst du helfen",
+          en: "How you can help",
+        },
         donate_lead: {
           de: "Jeder Beitrag – egal wie klein – gibt Sophies Familie die Möglichkeit, sich auf das Einzige zu konzentrieren, was gerade zählt: bei Sophie zu sein und die bestmögliche Heilung zu ermöglichen.",
           en: "Every contribution – no matter how small – gives Sophie's family the chance to focus on the only thing that matters right now: being there for Sophie and making the best possible recovery happen.",
@@ -1044,6 +1078,10 @@
         donate_disclaimer: {
           de: 'Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie zugute.<br />Da es sich um ein privates Spendenkonto handelt, ist eine steuerliche Absetzbarkeit nicht möglich.',
           en: "All donations go 100% directly to Sophie's family.<br />As this is a private donation account, the donations are not tax-deductible.",
+        },
+        footer_text: {
+          de: 'Danke, dass du dir die Zeit genommen hast, Sophies Geschichte zu lesen. Teile diese Seite gerne mit Menschen, die helfen möchten. <span class="heart">♥</span>',
+          en: 'Thank you for taking the time to read Sophie\'s story. Please feel free to share this page with people who would like to help. <span class="heart">♥</span>',
         },
         fab_label: {
           de: "Spendeninfo",
@@ -1106,7 +1144,9 @@
           .setAttribute("content", translations.meta_description[currentLang]);
 
         document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-          btn.classList.toggle("active", btn.getAttribute("data-lang") === currentLang);
+          const isActive = btn.getAttribute("data-lang") === currentLang;
+          btn.classList.toggle("active", isActive);
+          btn.setAttribute("aria-pressed", isActive);
         });
       }
 
@@ -1122,14 +1162,35 @@
         const iban = document
           .getElementById("iban")
           .innerText.replace(/\s/g, "");
-        navigator.clipboard.writeText(iban).then(() => {
+
+        function showCopied() {
           const btn = document.querySelector(".copy-btn");
-          const original = translations.copy_btn[currentLang];
           btn.innerText = translations.copy_btn_done[currentLang];
           setTimeout(() => {
-            btn.innerText = original;
+            btn.innerText = translations.copy_btn[currentLang];
           }, 1800);
-        });
+        }
+
+        function fallbackCopy() {
+          const ta = document.createElement("textarea");
+          ta.value = iban;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand("copy");
+            showCopied();
+          } catch (e) {}
+          document.body.removeChild(ta);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(iban).then(showCopied, fallbackCopy);
+        } else {
+          fallbackCopy();
+        }
       }
 
       const fab = document.querySelector(".donate-fab");
