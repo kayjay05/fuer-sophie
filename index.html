@@ -19,7 +19,10 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fuer-sophie.at/" />
-    <meta property="og:image" content="https://fuer-sophie.at/img/sun-thumbnail.png" />
+    <meta
+      property="og:image"
+      content="https://fuer-sophie.at/img/sun-thumbnail.png"
+    />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:locale" content="de_AT" />
@@ -672,7 +675,10 @@
         gap: 0.5rem;
         opacity: 0;
         pointer-events: none;
-        transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.15s ease;
+        transition:
+          opacity 0.35s ease,
+          transform 0.35s ease,
+          box-shadow 0.15s ease;
         white-space: nowrap;
       }
       .donate-fab.visible {
@@ -766,10 +772,10 @@
           <strong>Atypischer Teratoider Rhabdoidtumor (AT/RT)</strong>
           diagnostiziert – einer der seltensten und aggressivsten Hirntumoren.
           Eine Diagnose, die keine Familie je hören möchte, und mit der die
-          meisten Menschen noch nie in Berührung gekommen sind. Etwa
-          ein Lotto 6er im negativen Sinne, da er nur ca. 1% der Gehirntumoren
-          bei Kleinkindern ausmacht und in Deutschland pro Jahr nur ca. 10 -
-          22 Kinder betroffen sind.
+          meisten Menschen noch nie in Berührung gekommen sind. Etwa ein Lotto
+          6er im negativen Sinne, da er nur ca. 1% der Gehirntumoren bei
+          Kleinkindern ausmacht und in Deutschland pro Jahr nur ca. 10 - 22
+          Kinder betroffen sind.
         </p>
         <p data-i18n="story_p2">
           Der Tumor wurde zwei Wochen nach der Diagnose operativ entfernt, und
@@ -914,12 +920,16 @@
             von ganzem Herzen. <span style="color: var(--rose)">♥</span>
           </p>
 
-          <div class="divider-or" data-i18n="divider_or">direkt überweisen oder QR Code scannen</div>
+          <div class="divider-or" data-i18n="divider_or">
+            direkt überweisen oder QR Code scannen
+          </div>
 
           <div class="bank-box">
             <div class="bank-row">
               <div>
-                <div class="label" data-i18n="bank_owner_label">Kontoinhaber</div>
+                <div class="label" data-i18n="bank_owner_label">
+                  Kontoinhaber
+                </div>
                 <div class="value">Hofstadler Lisa - Spendenkonto Sophie</div>
               </div>
             </div>
@@ -928,7 +938,13 @@
                 <div class="label">IBAN</div>
                 <div class="value" id="iban">AT89 3427 7000 0223 2064</div>
               </div>
-              <button class="copy-btn" data-i18n="copy_btn" onclick="copyIban()">Kopieren</button>
+              <button
+                class="copy-btn"
+                data-i18n="copy_btn"
+                onclick="copyIban()"
+              >
+                Kopieren
+              </button>
             </div>
             <div class="bank-row">
               <div>
@@ -938,7 +954,9 @@
             </div>
             <div class="bank-row">
               <div>
-                <div class="label" data-i18n="bank_purpose_label">Verwendungszweck</div>
+                <div class="label" data-i18n="bank_purpose_label">
+                  Verwendungszweck
+                </div>
                 <div class="value">Spende für Sophie</div>
               </div>
             </div>
@@ -956,9 +974,20 @@
             </p>
           </div>
 
-          <p style="margin: 1.4rem 0 0; font-size: 0.78rem; color: rgba(244,239,227,0.45); line-height: 1.5; text-align: center;" data-i18n="donate_disclaimer">
-            Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie zugute.<br />
-            Da es sich um ein privates Spendenkonto handelt, ist eine steuerliche Absetzbarkeit nicht möglich.
+          <p
+            style="
+              margin: 1.4rem 0 0;
+              font-size: 0.78rem;
+              color: rgba(244, 239, 227, 0.45);
+              line-height: 1.5;
+              text-align: center;
+            "
+            data-i18n="donate_disclaimer"
+          >
+            Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie
+            zugute.<br />
+            Da es sich um ein privates Spendenkonto handelt, ist eine
+            steuerliche Absetzbarkeit nicht möglich.
           </p>
         </div>
       </div>
@@ -983,15 +1012,26 @@
         <span class="heart">♥</span>
       </p>
       <p class="imprint" data-i18n="imprint_text">
-        Diese Seite wurde privat von Johannes Kastner erstellt. Kontakt:
+        Diese Seite habe für privat für mein Patenkind Sophie erstellt -
+        Johannes Kastner, Kontakt:
         <a href="mailto:johannesk09@icloud.com">johannesk09@icloud.com</a>
       </p>
     </footer>
 
-    <a href="#donation" class="donate-fab" data-i18n-aria-label="fab_aria_label" aria-label="Zum Spendenkonto">
+    <a
+      href="#donation"
+      class="donate-fab"
+      data-i18n-aria-label="fab_aria_label"
+      aria-label="Zum Spendenkonto"
+    >
       <svg viewBox="0 0 24 24" fill="none">
         <circle cx="12" cy="12" r="4.5" fill="#221a0c" />
-        <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77" stroke="#221a0c" stroke-width="2" stroke-linecap="round" />
+        <path
+          d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77"
+          stroke="#221a0c"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
       </svg>
       <span data-i18n="fab_label">Spendeninfo</span>
     </a>
@@ -1015,7 +1055,7 @@
           en: "Her story",
         },
         story_p1: {
-          de: 'Alles begann mit Kopfschmerzen und Erbrechen über einige Tage hinweg – Symptome, die zunächst harmlos wirkten. Nur eine Woche später zeigte ein MRT des Gehirns die schreckliche und vollkommen überraschende Wahrheit: Bei Sophie wurde ein <strong>Atypischer Teratoider Rhabdoidtumor (AT/RT)</strong> diagnostiziert – einer der seltensten und aggressivsten Hirntumoren. Eine Diagnose, die keine Familie je hören möchte, und mit der die meisten Menschen noch nie in Berührung gekommen sind. Etwa ein Lotto 6er im negativen Sinne, da er nur ca. 1% der Gehirntumoren bei Kleinkindern ausmacht und in Deutschland pro Jahr nur ca. 10 - 22 Kinder betroffen sind.',
+          de: "Alles begann mit Kopfschmerzen und Erbrechen über einige Tage hinweg – Symptome, die zunächst harmlos wirkten. Nur eine Woche später zeigte ein MRT des Gehirns die schreckliche und vollkommen überraschende Wahrheit: Bei Sophie wurde ein <strong>Atypischer Teratoider Rhabdoidtumor (AT/RT)</strong> diagnostiziert – einer der seltensten und aggressivsten Hirntumoren. Eine Diagnose, die keine Familie je hören möchte, und mit der die meisten Menschen noch nie in Berührung gekommen sind. Etwa ein Lotto 6er im negativen Sinne, da er nur ca. 1% der Gehirntumoren bei Kleinkindern ausmacht und in Deutschland pro Jahr nur ca. 10 - 22 Kinder betroffen sind.",
           en: "It started with headaches and vomiting over a few days – symptoms that at first seemed harmless. Just a week later, an MRI of the brain revealed the terrifying and completely unexpected truth: Sophie was diagnosed with an <strong>Atypical Teratoid Rhabdoid Tumor (AT/RT)</strong> – one of the rarest and most aggressive brain tumors. A diagnosis no family ever wants to hear, and one most people have never even come across. Like winning the lottery in the worst possible way: it accounts for only about 1% of brain tumors in young children, with only around 10–22 children affected per year in Germany.",
         },
         story_p2: {
@@ -1091,7 +1131,7 @@
           en: "Scan with your banking app – the IBAN and payment reference will be filled in automatically.",
         },
         donate_disclaimer: {
-          de: 'Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie zugute.<br />Da es sich um ein privates Spendenkonto handelt, ist eine steuerliche Absetzbarkeit nicht möglich.',
+          de: "Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie zugute.<br />Da es sich um ein privates Spendenkonto handelt, ist eine steuerliche Absetzbarkeit nicht möglich.",
           en: "All donations go 100% directly to Sophie's family.<br />As this is a private donation account, the donations are not tax-deductible.",
         },
         footer_text: {
@@ -1219,10 +1259,18 @@
       let spendenVisible = false;
 
       const heroObs = new IntersectionObserver(
-        ([e]) => { heroGone = !e.isIntersecting; update(); }, { threshold: 0 }
+        ([e]) => {
+          heroGone = !e.isIntersecting;
+          update();
+        },
+        { threshold: 0 },
       );
       const spendenObs = new IntersectionObserver(
-        ([e]) => { spendenVisible = e.isIntersecting; update(); }, { threshold: 0 }
+        ([e]) => {
+          spendenVisible = e.isIntersecting;
+          update();
+        },
+        { threshold: 0 },
       );
 
       function update() {
