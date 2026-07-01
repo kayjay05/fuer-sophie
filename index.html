@@ -601,6 +601,15 @@
       footer .heart {
         color: var(--rose);
       }
+      footer .imprint {
+        margin-top: 1.6rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+        opacity: 0.75;
+      }
+      footer .imprint a {
+        text-decoration: underline;
+      }
 
       @media (max-width: 768px) {
         .donate {
@@ -973,6 +982,10 @@
         Teile diese Seite gerne mit Menschen, die helfen möchten.
         <span class="heart">♥</span>
       </p>
+      <p class="imprint" data-i18n="imprint_text">
+        Diese Seite wurde privat von Johannes Kastner erstellt. Kontakt:
+        <a href="mailto:johannesk09@icloud.com">johannesk09@icloud.com</a>
+      </p>
     </footer>
 
     <a href="#donation" class="donate-fab" data-i18n-aria-label="fab_aria_label" aria-label="Zum Spendenkonto">
@@ -1084,6 +1097,10 @@
         footer_text: {
           de: 'Danke, dass du dir die Zeit genommen hast, Sophies Geschichte zu lesen. Teile diese Seite gerne mit Menschen, die helfen möchten. <span class="heart">♥</span>',
           en: 'Thank you for taking the time to read Sophie\'s story. Please feel free to share this page with people who would like to help. <span class="heart">♥</span>',
+        },
+        imprint_text: {
+          de: 'Diese Seite wurde privat von Johannes Kastner erstellt. Kontakt: <a href="mailto:johannesk09@icloud.com">johannesk09@icloud.com</a>',
+          en: 'This page was created privately by Johannes Kastner. Contact: <a href="mailto:johannesk09@icloud.com">johannesk09@icloud.com</a>',
         },
         fab_label: {
           de: "Spendeninfo",
