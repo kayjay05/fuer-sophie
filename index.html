@@ -1114,8 +1114,6 @@
         const saved = localStorage.getItem("lang");
         if (saved === "de" || saved === "en") {
           currentLang = saved;
-        } else if (navigator.language && navigator.language.toLowerCase().startsWith("en")) {
-          currentLang = "en";
         }
         applyLang();
       })();
