@@ -540,7 +540,8 @@
         font-family: "Figtree", sans-serif;
         font-weight: 600;
         font-size: 0.98rem;
-        word-break: break-all;
+        /* an Leerzeichen umbrechen, überlange Zeichenketten notfalls hart trennen */
+        overflow-wrap: break-word;
         text-decoration: none;
       }
       .bank-row .value a {
@@ -719,8 +720,13 @@
         }
         .bank-row {
           flex-direction: column;
-          align-items: flex-start;
+          align-items: stretch;
           gap: 0.3rem;
+        }
+        /* stretch macht die Zeile voll breit, ohne die "Kopieren"-Schaltfläche zu dehnen */
+        .bank-row .copy-btn {
+          align-self: flex-start;
+          margin-top: 0.2rem;
         }
         .qr-area {
           flex-direction: column;
