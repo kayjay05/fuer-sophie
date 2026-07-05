@@ -95,46 +95,6 @@
         opacity: 0.75;
       }
 
-      /* ---------- LANGUAGE TOGGLE ---------- */
-      .lang-toggle {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 200;
-        display: flex;
-        background: rgba(27, 36, 54, 0.55);
-        border: 1px solid rgba(244, 239, 227, 0.25);
-        border-radius: 50px;
-        padding: 3px;
-        backdrop-filter: blur(6px);
-      }
-      .lang-toggle button {
-        border: none;
-        background: transparent;
-        color: rgba(244, 239, 227, 0.75);
-        font-family: "Figtree", sans-serif;
-        font-weight: 700;
-        font-size: 0.78rem;
-        letter-spacing: 0.04em;
-        padding: 0.4rem 0.75rem;
-        border-radius: 50px;
-        cursor: pointer;
-        transition:
-          background 0.15s ease,
-          color 0.15s ease;
-      }
-      .lang-toggle button.active {
-        background: var(--gold);
-        color: #221a0c;
-      }
-      .lang-toggle button:hover:not(.active) {
-        color: var(--cream-text);
-      }
-      .lang-toggle button:focus-visible {
-        outline: 2px solid var(--gold-soft);
-        outline-offset: 2px;
-      }
-
       /* ---------- HERO (dusk / night) ---------- */
       .hero {
         position: relative;
@@ -231,7 +191,7 @@
       .hero-photos {
         position: relative;
         width: min(600px, 94vw);
-        margin: 0.75rem auto 0;
+        margin: 2rem auto 0;
         z-index: 1;
       }
       .family-photo-crop {
@@ -677,7 +637,7 @@
           font-size: 1.02rem;
         }
         .hero-photos {
-          margin-top: 0.6rem;
+          margin-top: 1.25rem;
         }
         .sophie-badge {
           width: 140px;
@@ -736,10 +696,6 @@
           width: 140px;
           height: 140px;
         }
-        .lang-toggle {
-          top: 0.75rem;
-          right: 0.75rem;
-        }
       }
 
       @media (max-width: 380px) {
@@ -788,13 +744,230 @@
         height: 16px;
         flex: none;
       }
+
+      /* ---------- THANK-YOU (goal reached, in donate card) ---------- */
+      .donate .eyebrow {
+        display: block;
+        color: var(--gold-soft);
+        margin-bottom: 0.8rem;
+      }
+      .donate .signoff {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 1.15rem;
+        line-height: 1.5;
+        color: var(--gold-soft);
+        margin: 1.6rem 0 0;
+      }
+
+      /* Statuszeile über dem ausgegrauten Konto – fett und weiß */
+      .donation-closed-label {
+        margin-top: 2.6rem;
+        color: #fff;
+        font-weight: 700;
+      }
+      /* Spendenkonto bleibt sichtbar, aber ausgegraut (Ziel erreicht) */
+      .donation-closed {
+        margin-top: 1.4rem;
+        opacity: 0.5;
+        filter: grayscale(0.9);
+        pointer-events: none;
+        user-select: none;
+      }
+
+      /* ---------- THANK-YOU POPUP (goal reached, on load) ---------- */
+      body.modal-open {
+        overflow: hidden;
+      }
+      .thankyou-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: rgba(15, 20, 32, 0.72);
+        backdrop-filter: blur(5px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      .thankyou-overlay.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .thankyou-card {
+        position: relative;
+        width: min(460px, 100%);
+        max-height: calc(100svh - 3rem);
+        overflow-y: auto;
+        background: radial-gradient(
+          ellipse at 30% 0%,
+          var(--dusk-2),
+          var(--dusk-1)
+        );
+        color: var(--cream-text);
+        border: 1px solid rgba(215, 163, 59, 0.4);
+        border-radius: 22px;
+        padding: 2.6rem 2rem 2.4rem;
+        text-align: center;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+        transform: scale(0.94);
+        transition: transform 0.35s ease;
+      }
+      .thankyou-overlay.visible .thankyou-card {
+        transform: scale(1);
+      }
+      .thankyou-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 22px;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            ellipse at 30% 0%,
+            rgba(215, 163, 59, 0.18) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 80% 100%,
+            rgba(201, 122, 102, 0.1) 0%,
+            transparent 45%
+          );
+      }
+      .thankyou-card > * {
+        position: relative;
+        z-index: 1;
+      }
+      .thankyou-card .mini-sun {
+        width: 26px;
+        height: 26px;
+        margin: 0 auto 1.1rem;
+      }
+      .thankyou-card .mini-sun svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 0 8px rgba(215, 163, 59, 0.8));
+      }
+      .thankyou-card .eyebrow {
+        display: block;
+        color: var(--gold-soft);
+        margin-bottom: 0.7rem;
+      }
+      .thankyou-card h2 {
+        font-size: 1.7rem;
+        color: var(--cream-text);
+      }
+      .thankyou-card p {
+        margin: 1rem 0 0;
+        font-size: 1.02rem;
+        line-height: 1.7;
+        color: rgba(244, 239, 227, 0.85);
+      }
+      .thankyou-card .signoff {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 1.15rem;
+        color: var(--gold-soft);
+      }
+      .thankyou-close {
+        margin-top: 2rem;
+        display: inline-block;
+        background: var(--gold);
+        color: #221a0c;
+        font-family: "Figtree", sans-serif;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        padding: 0.85rem 2.3rem;
+        border-radius: 50px;
+        font-size: 1rem;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+        box-shadow: 0 8px 22px rgba(215, 163, 59, 0.35);
+      }
+      .thankyou-close:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 26px rgba(215, 163, 59, 0.45);
+      }
+      .thankyou-close:focus-visible {
+        outline: 3px solid var(--cream-text);
+        outline-offset: 3px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .thankyou-overlay,
+        .thankyou-card {
+          transition: none;
+        }
+        .thankyou-overlay.visible .thankyou-card {
+          transform: none;
+        }
+      }
+      @media (max-width: 480px) {
+        .thankyou-card {
+          padding: 2.2rem 1.4rem 2rem;
+          border-radius: 18px;
+        }
+        .thankyou-card h2 {
+          font-size: 1.45rem;
+        }
+        .thankyou-card p {
+          font-size: 0.98rem;
+        }
+      }
     </style>
   </head>
   <body>
-    <!-- ============ LANGUAGE TOGGLE ============ -->
-    <div class="lang-toggle" role="group" aria-label="Sprache / Language">
-      <button type="button" data-lang="de" onclick="setLang('de')">DE</button>
-      <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+    <!-- ============ THANK-YOU POPUP (goal reached) ============ -->
+    <div
+      class="thankyou-overlay"
+      id="thankyou"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="ty-title"
+      hidden
+    >
+      <div class="thankyou-card">
+        <div class="mini-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="4.5" fill="#D7A33B" />
+            <path
+              d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77"
+              stroke="#D7A33B"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+        <span class="eyebrow" data-i18n="ty_eyebrow">Spendenziel erreicht</span>
+        <h2 id="ty-title" data-i18n="ty_title">
+          Danke! <span style="color: var(--rose)">♥</span>
+        </h2>
+        <p data-i18n="ty_body">
+          Wir können es noch immer kaum glauben: Welch eine Resonanz dieser
+          Beitrag ausgelöst hat, wie oft die Seite geteilt wurde und wie viele
+          Menschen Sophie damit unterstützt haben. In weniger als vier Tagen
+          habt ihr etwas Unbezahlbares möglich gemacht – dass sich Sophies
+          Eltern während der voraussichtlichen Dauer der Chemo- und
+          Bestrahlungstherapie ganz auf das Wichtigste konzentrieren können: auf
+          Sophies Gesundheit und auf ihre Schwester.
+        </p>
+        <p class="signoff" data-i18n="ty_body2">
+          Im Namen von Sophie möchten wir uns bei jeder und jedem Einzelnen von
+          ganzem Herzen bedanken. <span style="color: var(--rose)">♥</span>
+        </p>
+        <button
+          type="button"
+          class="thankyou-close"
+          data-i18n="ty_close"
+          onclick="closeThankyou()"
+        >
+          Schließen
+        </button>
+      </div>
     </div>
 
     <!-- ============ HERO ============ -->
@@ -814,10 +987,6 @@
       </div>
 
       <h1>Sophie</h1>
-      <p class="meaning" data-i18n="hero_meaning">
-        Unterstütze mit deiner Spende den Kampf gegen ihren bösartigen
-        Gehirntumor
-      </p>
 
       <div class="hero-photos">
         <div class="family-photo-crop">
@@ -900,81 +1069,6 @@
       </div>
     </section>
 
-    <!-- ============ WHY WE NEED HELP ============ -->
-    <section class="reasons">
-      <div class="reasons-inner">
-        <h2 data-i18n="reasons_h2">Wofür wir deine Hilfe brauchen</h2>
-        <p
-          style="margin: -1.2rem 0 2rem; color: #5b6477; line-height: 1.6"
-          data-i18n="reasons_intro"
-        >
-          Sowohl die Chemotherapie als auch die Strahlentherapie werden viele
-          Monate dauern. Sophies Eltern werden in dieser Zeit kaum regelmäßig
-          oder gar nicht arbeiten können – sie müssen bei ihr sein und sich auch
-          um ihre Schwester kümmern. Was die Krankenkasse nicht abdeckt,
-          summiert sich schnell:
-        </p>
-        <div class="reason-list">
-          <div class="reason">
-            <div class="icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="7" width="18" height="13" rx="2" />
-                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-              </svg>
-            </div>
-            <p data-i18n="reason1">
-              <strong>Verdienstausfall der Eltern</strong>während der langen
-              Therapiephasen, in denen sie sich um beide Kinder kümmern müssen.
-            </p>
-          </div>
-          <div class="reason">
-            <div class="icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M3 13l2-6a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 6" />
-                <rect x="3" y="13" width="18" height="6" rx="1.5" />
-                <circle cx="7.5" cy="19" r="1.2" />
-                <circle cx="16.5" cy="19" r="1.2" />
-              </svg>
-            </div>
-            <p data-i18n="reason2">
-              <strong>Fahrt- und Unterkunftskosten</strong>für lange
-              Krankenhausaufenthalte, Anreisen und Übernachtungen.
-            </p>
-          </div>
-          <div class="reason">
-            <div class="icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M12 2v6M12 16v6M2 12h6M16 12h6" />
-              </svg>
-            </div>
-            <p data-i18n="reason3">
-              <strong>Zuzahlungen und Zusatzkosten</strong>für Medikamente,
-              Hilfsmittel und Therapien, die nicht oder nicht vollständig
-              gedeckt sind.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ DONATE ============ -->
     <section class="donate-wrap" id="donation">
       <div class="donate">
@@ -990,98 +1084,85 @@
               />
             </svg>
           </div>
-          <h2 data-i18n="donate_h2">So kannst du helfen</h2>
-          <p class="lead" data-i18n="donate_lead">
-            Jeder Beitrag – egal wie klein – gibt Sophies Familie die
-            Möglichkeit, sich auf das Einzige zu konzentrieren, was gerade
-            zählt: bei Sophie zu sein und die bestmögliche Heilung zu
-            ermöglichen.
-          </p>
-
-          <p
-            style="
-              font-family: &quot;Fraunces&quot;, serif;
-              font-style: italic;
-              font-size: 1.1rem;
-              color: rgba(244, 239, 227, 0.85);
-              margin: 0 0 2rem;
-              line-height: 1.6;
-            "
-            data-i18n="donate_thanks"
+          <span class="eyebrow" data-i18n="ty_eyebrow"
+            >Spendenziel erreicht</span
           >
-            Sophie verdient jede Chance. Helft uns, sie ihr zu geben.<br />Danke
-            von ganzem Herzen. <span style="color: var(--rose)">♥</span>
+          <h2 data-i18n="ty_title">
+            Danke! <span style="color: var(--rose)">♥</span>
+          </h2>
+          <p class="lead" data-i18n="ty_body">
+            Wir können es noch immer kaum glauben: Welch eine Resonanz dieser
+            Beitrag ausgelöst hat, wie oft die Seite geteilt wurde und wie viele
+            Menschen Sophie damit unterstützt haben. In weniger als vier Tagen
+            habt ihr etwas Unbezahlbares möglich gemacht – dass sich Sophies
+            Eltern während der voraussichtlichen Dauer der Chemo- und
+            Bestrahlungstherapie ganz auf das Wichtigste konzentrieren können:
+            auf Sophies Gesundheit und auf ihre Schwester.
+          </p>
+          <p class="signoff" data-i18n="ty_body2">
+            Im Namen von Sophie möchten wir uns bei jeder und jedem Einzelnen
+            von ganzem Herzen bedanken.
+            <span style="color: var(--rose)">♥</span>
           </p>
 
-          <div class="divider-or" data-i18n="divider_or">
-            direkt überweisen oder QR Code scannen
+          <div class="divider-or donation-closed-label">
+            Spendenkonto – Spendenziel bereits erreicht
           </div>
 
-          <div class="bank-box">
-            <div class="bank-row">
-              <div>
-                <div class="label" data-i18n="bank_owner_label">
-                  Kontoinhaber
+          <div class="donation-closed" aria-hidden="true">
+            <div class="bank-box">
+              <div class="bank-row">
+                <div>
+                  <div class="label">Kontoinhaber</div>
+                  <div class="value">Spendenkonto Sophie</div>
                 </div>
-                <div class="value">Hofstadler Lisa - Spendenkonto Sophie</div>
               </div>
-            </div>
-            <div class="bank-row">
-              <div>
-                <div class="label">IBAN</div>
-                <div class="value" id="iban">AT89 3427 7000 0223 2064</div>
-              </div>
-              <button
-                class="copy-btn"
-                data-i18n="copy_btn"
-                onclick="copyIban()"
-              >
-                Kopieren
-              </button>
-            </div>
-            <div class="bank-row">
-              <div>
-                <div class="label">BIC</div>
-                <div class="value">RZOOAT2L (Raiffeisenbank)</div>
-              </div>
-            </div>
-            <div class="bank-row">
-              <div>
-                <div class="label" data-i18n="bank_purpose_label">
-                  Verwendungszweck
+              <div class="bank-row">
+                <div>
+                  <div class="label">IBAN</div>
+                  <div class="value">AT89 3427 7000 0223 2064</div>
                 </div>
-                <div class="value">Spende für Sophie</div>
+              </div>
+              <div class="bank-row">
+                <div>
+                  <div class="label">BIC</div>
+                  <div class="value">RZOOAT2L (Raiffeisenbank)</div>
+                </div>
+              </div>
+              <div class="bank-row">
+                <div>
+                  <div class="label">Verwendungszweck</div>
+                  <div class="value">Spende für Sophie</div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="qr-area">
-            <img
-              src="img/QR_Code Spendenkonto.jpeg"
-              data-i18n-alt="qr_alt"
-              alt="QR-Code zum Überweisen"
-            />
-            <p data-i18n="qr_text">
-              Mit der Banking-App scannen – IBAN und Verwendungszweck werden
-              automatisch ausgefüllt.
+            <div class="qr-area">
+              <img
+                src="img/QR_Code Spendenkonto.jpeg"
+                alt="QR-Code zum Überweisen"
+              />
+              <p>
+                Mit der Banking-App scannen – IBAN und Verwendungszweck werden
+                automatisch ausgefüllt.
+              </p>
+            </div>
+
+            <p
+              style="
+                margin: 1.4rem 0 0;
+                font-size: 0.78rem;
+                color: rgba(244, 239, 227, 0.45);
+                line-height: 1.5;
+                text-align: center;
+              "
+            >
+              Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie
+              zugute.<br />
+              Da es sich um ein privates Spendenkonto handelt, ist eine
+              steuerliche Absetzbarkeit nicht möglich.
             </p>
           </div>
-
-          <p
-            style="
-              margin: 1.4rem 0 0;
-              font-size: 0.78rem;
-              color: rgba(244, 239, 227, 0.45);
-              line-height: 1.5;
-              text-align: center;
-            "
-            data-i18n="donate_disclaimer"
-          >
-            Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie
-            zugute.<br />
-            Da es sich um ein privates Spendenkonto handelt, ist eine
-            steuerliche Absetzbarkeit nicht möglich.
-          </p>
         </div>
       </div>
     </section>
@@ -1101,7 +1182,6 @@
       </div>
       <p data-i18n="footer_text">
         Danke, dass du dir die Zeit genommen hast, Sophies Geschichte zu lesen.
-        Teile diese Seite gerne mit Menschen, die helfen möchten.
         <span class="heart">♥</span>
       </p>
       <p class="imprint" data-i18n="imprint_text">
@@ -1111,267 +1191,40 @@
       </p>
     </footer>
 
-    <a
-      href="#donation"
-      class="donate-fab"
-      data-i18n-aria-label="fab_aria_label"
-      aria-label="Zum Spendenkonto"
-    >
-      <svg viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="4.5" fill="#221a0c" />
-        <path
-          d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77"
-          stroke="#221a0c"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </svg>
-      <span data-i18n="fab_label">Spendeninfo</span>
-    </a>
-
     <script>
-      const translations = {
-        hero_meaning: {
-          de: "Unterstütze mit deiner Spende den Kampf gegen ihren bösartigen Gehirntumor",
-          en: "Support the fight against her malignant brain tumor with your donation",
-        },
-        hero_family_photo_alt: {
-          de: "Sophie mit ihrer Familie",
-          en: "Sophie with her family",
-        },
-        hero_hook: {
-          de: "Mein Patenkind Sophie ist 3 Jahre alt – lustig, neugierig und voller Lebensfreude. Mitte Mai 2026 hat sich ihr Leben mit der Diagnose eines bösartigen Gehirntumors von einem Moment auf den anderen verändert.",
-          en: "My godchild Sophie is 3 years old – funny, curious and full of joy for life. In mid-May 2026, her life changed from one moment to the next with the diagnosis of a malignant brain tumor.",
-        },
-        scroll_cue: {
-          de: "Ihre Geschichte",
-          en: "Her story",
-        },
-        story_p1: {
-          de: "Alles begann mit Kopfschmerzen und Erbrechen über einige Tage hinweg – Symptome, die zunächst harmlos wirkten. Nur eine Woche später zeigte ein MRT des Gehirns die schreckliche und vollkommen überraschende Wahrheit: Bei Sophie wurde ein <strong>Atypischer Teratoider Rhabdoidtumor (AT/RT)</strong> diagnostiziert – einer der seltensten und aggressivsten Hirntumoren. Eine Diagnose, die keine Familie je hören möchte, und mit der die meisten Menschen noch nie in Berührung gekommen sind. Etwa ein Lotto 6er im negativen Sinne, da er nur ca. 1% der Gehirntumoren bei Kleinkindern ausmacht und in Deutschland pro Jahr nur ca. 10 - 22 Kinder betroffen sind.",
-          en: "It started with headaches and vomiting over a few days – symptoms that at first seemed harmless. Just a week later, an MRI of the brain revealed the terrifying and completely unexpected truth: Sophie was diagnosed with an <strong>Atypical Teratoid Rhabdoid Tumor (AT/RT)</strong> – one of the rarest and most aggressive brain tumors. A diagnosis no family ever wants to hear, and one most people have never even come across. Like winning the lottery in the worst possible way: it accounts for only about 1% of brain tumors in young children, with only around 10–22 children affected per year in Germany.",
-        },
-        story_p2: {
-          de: "Der Tumor wurde zwei Wochen nach der Diagnose operativ entfernt, und Sophie hat die Operation am Gehirn tapfer überstanden. Aber das ist erst der Anfang eines langen Weges: In den kommenden Monaten steht ihr eine intensive Chemotherapie kombiniert mit Bestrahlung bevor, um im Körper verbliebene Krebszellen zu zerstören und eine nachhaltige Heilung zu ermöglichen.",
-          en: "The tumor was surgically removed two weeks after diagnosis, and Sophie bravely came through the brain surgery. But that is only the beginning of a long road: in the coming months she faces intensive chemotherapy combined with radiation therapy, to destroy any cancer cells remaining in her body and give her a lasting cure.",
-        },
-        pull_quote: {
-          de: "So erschütternd diese Diagnose ist – wir geben die Hoffnung nicht auf.",
-          en: "As devastating as this diagnosis is – we are not giving up hope.",
-        },
-        story_p3: {
-          de: "Wir klammern uns an jeden Grund, der für Sophie spricht. Und davon gibt es einige: Der Tumor wurde früh entdeckt, konnte vollständig entfernt werden, und Sophie wird nach dem bestmöglichen Konzept behandelt, das die moderne Medizin für diesen seltenen und aggressiven Tumor kennt. Vor allem aber kämpft Sophie selbst – jeden einzelnen Tag, mit einem Mut und einer Lebensfreude, die uns alle sprachlos machen.",
-          en: "We hold on to every reason that is in Sophie's favor. And there are a few: the tumor was detected early, could be completely removed, and Sophie is being treated according to the best protocol modern medicine knows for this rare and aggressive tumor. But above all, Sophie herself is fighting – every single day, with a courage and joy for life that leave us all speechless.",
-        },
-        reasons_h2: {
-          de: "Wofür wir deine Hilfe brauchen",
-          en: "What we need your help for",
-        },
-        reasons_intro: {
-          de: "Sowohl die Chemotherapie als auch die Strahlentherapie werden viele Monate dauern. Sophies Eltern werden in dieser Zeit kaum regelmäßig oder gar nicht arbeiten können – sie müssen bei ihr sein und sich auch um ihre Schwester kümmern. Was die Krankenkasse nicht abdeckt, summiert sich schnell:",
-          en: "Both the chemotherapy and the radiation therapy will take many months. During this time, Sophie's parents will barely be able to work, if at all – they need to be with her and also take care of her sister. What health insurance doesn't cover adds up quickly:",
-        },
-        reason1: {
-          de: "<strong>Verdienstausfall der Eltern</strong>während der langen Therapiephasen, in denen sie sich um beide Kinder kümmern müssen.",
-          en: "<strong>Loss of parents' income</strong>during the long treatment phases, while they care for both children.",
-        },
-        reason2: {
-          de: "<strong>Fahrt- und Unterkunftskosten</strong>für lange Krankenhausaufenthalte, Anreisen und Übernachtungen.",
-          en: "<strong>Travel and accommodation costs</strong>for long hospital stays, journeys and overnight stays.",
-        },
-        reason3: {
-          de: "<strong>Zuzahlungen und Zusatzkosten</strong>für Medikamente, Hilfsmittel und Therapien, die nicht oder nicht vollständig gedeckt sind.",
-          en: "<strong>Co-payments and extra costs</strong>for medication, aids and therapies that are not, or not fully, covered.",
-        },
-        donate_h2: {
-          de: "So kannst du helfen",
-          en: "How you can help",
-        },
-        donate_lead: {
-          de: "Jeder Beitrag – egal wie klein – gibt Sophies Familie die Möglichkeit, sich auf das Einzige zu konzentrieren, was gerade zählt: bei Sophie zu sein und die bestmögliche Heilung zu ermöglichen.",
-          en: "Every contribution – no matter how small – gives Sophie's family the chance to focus on the only thing that matters right now: being there for Sophie and making the best possible recovery happen.",
-        },
-        donate_thanks: {
-          de: 'Sophie verdient jede Chance. Helft uns, sie ihr zu geben.<br />Danke von ganzem Herzen. <span style="color: var(--rose)">♥</span>',
-          en: 'Sophie deserves every chance. Help us give it to her.<br />Thank you from the bottom of our hearts. <span style="color: var(--rose)">♥</span>',
-        },
-        divider_or: {
-          de: "direkt überweisen oder QR Code scannen",
-          en: "transfer directly or scan the QR code",
-        },
-        bank_owner_label: {
-          de: "Kontoinhaber",
-          en: "Account holder",
-        },
-        bank_purpose_label: {
-          de: "Verwendungszweck",
-          en: "Payment reference",
-        },
-        copy_btn: {
-          de: "Kopieren",
-          en: "Copy",
-        },
-        copy_btn_done: {
-          de: "Kopiert ✓",
-          en: "Copied ✓",
-        },
-        qr_alt: {
-          de: "QR-Code zum Überweisen",
-          en: "QR code for the bank transfer",
-        },
-        qr_text: {
-          de: "Mit der Banking-App scannen – IBAN und Verwendungszweck werden automatisch ausgefüllt.",
-          en: "Scan with your banking app – the IBAN and payment reference will be filled in automatically.",
-        },
-        donate_disclaimer: {
-          de: "Alle Spenden kommen zu 100&nbsp;% direkt der Familie von Sophie zugute.<br />Da es sich um ein privates Spendenkonto handelt, ist eine steuerliche Absetzbarkeit nicht möglich.",
-          en: "All donations go 100% directly to Sophie's family.<br />As this is a private donation account, the donations are not tax-deductible.",
-        },
-        footer_text: {
-          de: 'Danke, dass du dir die Zeit genommen hast, Sophies Geschichte zu lesen. Teile diese Seite gerne mit Menschen, die helfen möchten. <span class="heart">♥</span>',
-          en: 'Thank you for taking the time to read Sophie\'s story. Please feel free to share this page with people who would like to help. <span class="heart">♥</span>',
-        },
-        imprint_text: {
-          de: 'Ich habe diese Seite privat zur Unterstützung meines Patenkindes Sophie erstellt - Johannes Kastner (Kontakt: <a href="mailto:johannesk09@icloud.com">johannesk09@icloud.com</a>)',
-          en: 'I created this page privately to support my godchild Sophie - Johannes Kastner (contact: <a href="mailto:johannesk09@icloud.com">johannesk09@icloud.com</a>)',
-        },
-        fab_label: {
-          de: "Spendeninfo",
-          en: "Donate",
-        },
-        fab_aria_label: {
-          de: "Zum Spendenkonto",
-          en: "Go to the donation account",
-        },
-        page_title: {
-          de: "Für Sophie",
-          en: "For Sophie",
-        },
-        meta_description: {
-          de: "Sophie ist 3 Jahre alt und kämpft gegen einen seltenen, aggressiven Hirntumor. Helft uns, ihr jede Chance zu geben.",
-          en: "Sophie is 3 years old and is fighting a rare, aggressive brain tumor. Help us give her every chance.",
-        },
-      };
+      /* ---------- THANK-YOU POPUP ---------- */
+      const thankyou = document.getElementById("thankyou");
 
-      let currentLang = "de";
-
-      function setLang(lang) {
-        currentLang = lang;
-        localStorage.setItem("lang", lang);
-        applyLang();
+      function closeThankyou() {
+        thankyou.classList.remove("visible");
+        document.body.classList.remove("modal-open");
+        thankyou.setAttribute("hidden", "");
       }
 
-      function applyLang() {
-        document.getElementById("html-root").setAttribute("lang", currentLang);
-
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
-          if (translations[key]) {
-            el.innerHTML = translations[key][currentLang];
-          }
-        });
-        document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
-          const key = el.getAttribute("data-i18n-alt");
-          if (translations[key]) {
-            el.setAttribute("alt", translations[key][currentLang]);
-          }
-        });
-        document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
-          const key = el.getAttribute("data-i18n-aria-label");
-          if (translations[key]) {
-            el.setAttribute("aria-label", translations[key][currentLang]);
-          }
-        });
-
-        document.getElementById("page-title").innerText =
-          translations.page_title[currentLang];
-        document
-          .getElementById("meta-description")
-          .setAttribute("content", translations.meta_description[currentLang]);
-        document
-          .getElementById("og-title")
-          .setAttribute("content", translations.page_title[currentLang]);
-        document
-          .getElementById("og-description")
-          .setAttribute("content", translations.meta_description[currentLang]);
-
-        document.querySelectorAll(".lang-toggle button").forEach((btn) => {
-          const isActive = btn.getAttribute("data-lang") === currentLang;
-          btn.classList.toggle("active", isActive);
-          btn.setAttribute("aria-pressed", isActive);
+      function openThankyou() {
+        thankyou.removeAttribute("hidden");
+        document.body.classList.add("modal-open");
+        // in den nächsten Frame verschieben, damit die Einblend-Transition greift
+        requestAnimationFrame(() => {
+          thankyou.classList.add("visible");
+          const btn = thankyou.querySelector(".thankyou-close");
+          if (btn) btn.focus();
         });
       }
 
-      (function initLang() {
-        const saved = localStorage.getItem("lang");
-        if (saved === "de" || saved === "en") {
-          currentLang = saved;
+      // Schließen per Klick auf den Backdrop (nicht auf die Karte)
+      thankyou.addEventListener("click", (e) => {
+        if (e.target === thankyou) closeThankyou();
+      });
+      // Schließen per Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && thankyou.classList.contains("visible")) {
+          closeThankyou();
         }
-        applyLang();
-      })();
+      });
 
-      function copyIban() {
-        const iban = document
-          .getElementById("iban")
-          .innerText.replace(/\s/g, "");
-
-        function showCopied() {
-          const btn = document.querySelector(".copy-btn");
-          btn.innerText = translations.copy_btn_done[currentLang];
-          setTimeout(() => {
-            btn.innerText = translations.copy_btn[currentLang];
-          }, 1800);
-        }
-
-        function fallbackCopy() {
-          const ta = document.createElement("textarea");
-          ta.value = iban;
-          ta.setAttribute("readonly", "");
-          ta.style.position = "fixed";
-          ta.style.opacity = "0";
-          document.body.appendChild(ta);
-          ta.select();
-          try {
-            document.execCommand("copy");
-            showCopied();
-          } catch (e) {}
-          document.body.removeChild(ta);
-        }
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(iban).then(showCopied, fallbackCopy);
-        } else {
-          fallbackCopy();
-        }
-      }
-
-      const fab = document.querySelector(".donate-fab");
-      const hero = document.querySelector(".hero");
-      const spenden = document.querySelector("#donation");
-      let heroGone = false;
-      let spendenVisible = false;
-
-      const heroObs = new IntersectionObserver(
-        ([e]) => {
-          heroGone = !e.isIntersecting;
-          update();
-        },
-        { threshold: 0 },
-      );
-      const spendenObs = new IntersectionObserver(
-        ([e]) => {
-          spendenVisible = e.isIntersecting;
-          update();
-        },
-        { threshold: 0 },
-      );
-
-      function update() {
-        fab.classList.toggle("visible", heroGone && !spendenVisible);
-      }
-
-      heroObs.observe(hero);
-      spendenObs.observe(spenden);
+      // Bei jedem Laden/Reload anzeigen
+      openThankyou();
     </script>
   </body>
 </html>
